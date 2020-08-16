@@ -1,0 +1,18 @@
+﻿<UserControl
+    x:Class="Famoser.DrawExample.DrawControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Famoser.DrawExample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid>
+        <Canvas x:Name="GridCanvas" Loaded="Canvas_Loaded" ZIndex="-1" />
+        <Canvas x:Name="PointsCanvas" Loaded="Canvas_Loaded" ZIndex="-2" />
+        <Canvas x:Name="RedCanvas" ZIndex="-10">
+        </Canvas>
+
+        <Grid Tapped="InputGrid_Tapped" Background="Transparent" />
+    </Grid>
+</UserControl>
