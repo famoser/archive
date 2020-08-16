@@ -1,0 +1,4 @@
+.idea
+vendor
+production_data.json
+test_data.json

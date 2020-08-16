@@ -1,0 +1,97 @@
+<?php
+
+
+ function autoload_96ae808a677adb2539f52cf579148e8e($class)
+{
+    $classes = array(
+        'Famoser\MBOApiWrapper\SiteService\Site_x0020_Service' => __DIR__ .'/Site_x0020_Service.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSites' => __DIR__ .'/GetSites.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSitesRequest' => __DIR__ .'/GetSitesRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\MBRequest' => __DIR__ .'/MBRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\SourceCredentials' => __DIR__ .'/SourceCredentials.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfInt' => __DIR__ .'/ArrayOfInt.php',
+        'Famoser\MBOApiWrapper\SiteService\UserCredentials' => __DIR__ .'/UserCredentials.php',
+        'Famoser\MBOApiWrapper\SiteService\XMLDetailLevel' => __DIR__ .'/XMLDetailLevel.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfString' => __DIR__ .'/ArrayOfString.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSitesResponse' => __DIR__ .'/GetSitesResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSitesResult' => __DIR__ .'/GetSitesResult.php',
+        'Famoser\MBOApiWrapper\SiteService\MBResult' => __DIR__ .'/MBResult.php',
+        'Famoser\MBOApiWrapper\SiteService\StatusCode' => __DIR__ .'/StatusCode.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfSite' => __DIR__ .'/ArrayOfSite.php',
+        'Famoser\MBOApiWrapper\SiteService\Site' => __DIR__ .'/Site.php',
+        'Famoser\MBOApiWrapper\SiteService\GetLocations' => __DIR__ .'/GetLocations.php',
+        'Famoser\MBOApiWrapper\SiteService\GetLocationsRequest' => __DIR__ .'/GetLocationsRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetLocationsResponse' => __DIR__ .'/GetLocationsResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetLocationsResult' => __DIR__ .'/GetLocationsResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfLocation' => __DIR__ .'/ArrayOfLocation.php',
+        'Famoser\MBOApiWrapper\SiteService\Location' => __DIR__ .'/Location.php',
+        'Famoser\MBOApiWrapper\SiteService\MBObject' => __DIR__ .'/MBObject.php',
+        'Famoser\MBOApiWrapper\SiteService\ActionCode' => __DIR__ .'/ActionCode.php',
+        'Famoser\MBOApiWrapper\SiteService\GetActivationCode' => __DIR__ .'/GetActivationCode.php',
+        'Famoser\MBOApiWrapper\SiteService\GetActivationCodeRequest' => __DIR__ .'/GetActivationCodeRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetActivationCodeResponse' => __DIR__ .'/GetActivationCodeResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetActivationCodeResult' => __DIR__ .'/GetActivationCodeResult.php',
+        'Famoser\MBOApiWrapper\SiteService\GetPrograms' => __DIR__ .'/GetPrograms.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProgramsRequest' => __DIR__ .'/GetProgramsRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\ScheduleType' => __DIR__ .'/ScheduleType.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProgramsResponse' => __DIR__ .'/GetProgramsResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProgramsResult' => __DIR__ .'/GetProgramsResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfProgram' => __DIR__ .'/ArrayOfProgram.php',
+        'Famoser\MBOApiWrapper\SiteService\Program' => __DIR__ .'/Program.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSessionTypes' => __DIR__ .'/GetSessionTypes.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSessionTypesRequest' => __DIR__ .'/GetSessionTypesRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSessionTypesResponse' => __DIR__ .'/GetSessionTypesResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetSessionTypesResult' => __DIR__ .'/GetSessionTypesResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfSessionType' => __DIR__ .'/ArrayOfSessionType.php',
+        'Famoser\MBOApiWrapper\SiteService\SessionType' => __DIR__ .'/SessionType.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResources' => __DIR__ .'/GetResources.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourcesRequest' => __DIR__ .'/GetResourcesRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourcesResponse' => __DIR__ .'/GetResourcesResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourcesResult' => __DIR__ .'/GetResourcesResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfResource' => __DIR__ .'/ArrayOfResource.php',
+        'Famoser\MBOApiWrapper\SiteService\Resource' => __DIR__ .'/Resource.php',
+        'Famoser\MBOApiWrapper\SiteService\GetRelationships' => __DIR__ .'/GetRelationships.php',
+        'Famoser\MBOApiWrapper\SiteService\GetRelationshipsRequest' => __DIR__ .'/GetRelationshipsRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetRelationshipsResponse' => __DIR__ .'/GetRelationshipsResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetRelationshipsResult' => __DIR__ .'/GetRelationshipsResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfRelationship' => __DIR__ .'/ArrayOfRelationship.php',
+        'Famoser\MBOApiWrapper\SiteService\Relationship' => __DIR__ .'/Relationship.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourceSchedule' => __DIR__ .'/GetResourceSchedule.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourceScheduleRequest' => __DIR__ .'/GetResourceScheduleRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourceScheduleResponse' => __DIR__ .'/GetResourceScheduleResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetResourceScheduleResult' => __DIR__ .'/GetResourceScheduleResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ReserveResource' => __DIR__ .'/ReserveResource.php',
+        'Famoser\MBOApiWrapper\SiteService\ReserveResourceRequest' => __DIR__ .'/ReserveResourceRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\ReserveResourceResponse' => __DIR__ .'/ReserveResourceResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\ReserveResourceResult' => __DIR__ .'/ReserveResourceResult.php',
+        'Famoser\MBOApiWrapper\SiteService\GetMobileProviders' => __DIR__ .'/GetMobileProviders.php',
+        'Famoser\MBOApiWrapper\SiteService\GetMobileProvidersRequest' => __DIR__ .'/GetMobileProvidersRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetMobileProvidersResponse' => __DIR__ .'/GetMobileProvidersResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetMobileProvidersResult' => __DIR__ .'/GetMobileProvidersResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfMobileProvider' => __DIR__ .'/ArrayOfMobileProvider.php',
+        'Famoser\MBOApiWrapper\SiteService\MobileProvider' => __DIR__ .'/MobileProvider.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProspectStages' => __DIR__ .'/GetProspectStages.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProspectStagesRequest' => __DIR__ .'/GetProspectStagesRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProspectStagesResponse' => __DIR__ .'/GetProspectStagesResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetProspectStagesResult' => __DIR__ .'/GetProspectStagesResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfProspectStage' => __DIR__ .'/ArrayOfProspectStage.php',
+        'Famoser\MBOApiWrapper\SiteService\ProspectStage' => __DIR__ .'/ProspectStage.php',
+        'Famoser\MBOApiWrapper\SiteService\GetGenders' => __DIR__ .'/GetGenders.php',
+        'Famoser\MBOApiWrapper\SiteService\GetGendersRequest' => __DIR__ .'/GetGendersRequest.php',
+        'Famoser\MBOApiWrapper\SiteService\GetGendersResponse' => __DIR__ .'/GetGendersResponse.php',
+        'Famoser\MBOApiWrapper\SiteService\GetGendersResult' => __DIR__ .'/GetGendersResult.php',
+        'Famoser\MBOApiWrapper\SiteService\ArrayOfGenderOption' => __DIR__ .'/ArrayOfGenderOption.php',
+        'Famoser\MBOApiWrapper\SiteService\GenderOption' => __DIR__ .'/GenderOption.php',
+        'Famoser\MBOApiWrapper\SiteService\Row' => __DIR__ .'/Row.php',
+        'Famoser\MBOApiWrapper\SiteService\RecordSet' => __DIR__ .'/RecordSet.php'
+    );
+    if (!empty($classes[$class])) {
+        include $classes[$class];
+    };
+}
+
+spl_autoload_register('autoload_96ae808a677adb2539f52cf579148e8e');
+
+// Do nothing. The rest is just leftovers from the code generation.
+{
+}

@@ -1,0 +1,16 @@
+{
+  "name": "famoser/mindbodyonline-api-php-wrapper",
+  "license": "MIT",
+  "description": "a simple api wrapper for mindbodyonline ",
+  "autoload": {
+    "psr-4": {
+      "Famoser\\MBOApiWrapper\\": "src/"
+    },
+    "files": [
+      "src/autoload_services.php"
+    ]
+  },
+  "require": {
+    "wsdl2phpgenerator/wsdl2phpgenerator": "^3.3"
+  }
+}
