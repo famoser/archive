@@ -1,0 +1,10 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% block title %}{{ 'login.reset'|trans({}, "public") }}{% endblock title %}
+
+{% block fos_user_content %}
+{% include "FOSUserBundle:Resetting:request_content.html.twig" %}
+    <a href="{{ path('fos_user_security_login') }}"
+       class="text-center">{{ 'login.sign_in'|trans({}, "public") }}</a>
+
+{% endblock fos_user_content %}

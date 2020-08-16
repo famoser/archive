@@ -1,0 +1,12 @@
+submit: "submit"
+
+login:
+  forgot_pw: "I forgot my password"
+
+
+dashboard: "dashboard"
+messages: "messages"
+tasks: "tasks"
+customers: "customers"
+offers: "offers"
+orders: "orders"

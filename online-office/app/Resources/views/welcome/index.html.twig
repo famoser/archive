@@ -1,0 +1,22 @@
+{% extends "register_layout.html.twig" %}
+
+{% import "makros/buttons.html.twig" as buttons %}
+
+{% trans_default_domain 'welcome' %}
+
+{% block title %}{{ "title"|trans }}{% endblock title %}
+
+{% block fos_user_content %}
+
+
+    <p>{{ "messages.welcome"|trans }}</p>
+    {% if (first_time) %}
+        <p><b>{{ "messages.admin_create"|trans }}</b></p>
+    {% endif %}
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_end(form) }}
+
+
+{% endblock fos_user_content %}

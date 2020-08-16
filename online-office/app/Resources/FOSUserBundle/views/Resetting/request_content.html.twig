@@ -1,0 +1,17 @@
+{% import "makros/buttons.html.twig" as buttons %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_resetting_send_email') }}" method="POST" class="fos_user_resetting_request">
+
+    {% if invalid_username is defined %}
+        <p>{{ 'resetting.request.invalid_username'|trans({'%username%': invalid_username}) }}</p>
+    {% endif %}
+
+    <div class="form-group has-feedback">
+        <input name="username" required="required" type="text" class="form-control" placeholder="{{ 'resetting.request.username'|trans }}">
+        <span class="glyphicon glyphicon-user form-control-feedback"></span>
+    </div>
+
+    {{ buttons.submit('resetting.request.submit'|trans) }}
+</form>

@@ -1,0 +1,15 @@
+{% extends "list_layout.html.twig" %}
+
+{% block tableHead %}
+    <th>email</th>
+    <th>name</th>
+{% endblock tableHead %}
+
+{% block tableBody %}
+    {% for entity in entities %}
+        <tr data-href="{{ path( entityNamePlural  ~ '_show', { 'id': entity.id }) }}">
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.name }}</td>
+        </tr>
+    {% endfor %}
+{% endblock tableBody %}

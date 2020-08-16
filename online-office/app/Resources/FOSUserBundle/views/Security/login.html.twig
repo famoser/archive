@@ -1,0 +1,46 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% import "makros/buttons.html.twig" as buttons %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{{ 'login.sign_in'|trans({}, "public") }}{% endblock title %}
+
+{% block fos_user_content %}
+
+    <form action="{{ path("fos_user_security_check") }}" method="post">
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+        <div class="form-group has-feedback">
+            <input name="_username" required="required" type="text" class="form-control"
+                   value="{{ last_username }}" placeholder="{{ 'security.login.username'|trans }}">
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+            <input type="password" name="_password" class="form-control"
+                   placeholder="{{ 'security.login.password'|trans }}" required="required">
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+            <div class="col-xs-8">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="remember_me" name="_remember_me"
+                               value="on">{{ 'security.login.remember_me'|trans }}
+                    </label>
+                </div>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-4">
+                {{ buttons.submit('security.login.submit'|trans, false) }}
+            </div>
+            <!-- /.col -->
+        </div>
+    </form>
+
+
+    <a href="{{ path('fos_user_resetting_request') }}">{{ 'login.forgot_pw'|trans({}, "public") }}</a><br>
+    <a href="{{ path('fos_user_registration_register') }}"
+       class="text-center">{{ 'login.register'|trans({}, "public") }}</a>
+
+
+{% endblock fos_user_content %}

@@ -1,0 +1,5 @@
+login:
+    forgot_pw: "I forgot my password"
+    register: "register"
+    sign_in: "sign in"
+    reset: "reset"

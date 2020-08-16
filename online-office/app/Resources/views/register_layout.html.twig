@@ -1,0 +1,23 @@
+{% extends 'header.html.twig' %}
+
+{% block bodyclass %}hold-transition login-page{% endblock %}
+
+{% block layout %}
+
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="/"><b>Online</b>Office</a>
+        </div>
+
+        <div class="login-box-body">
+            {% if error is defined and error %}
+                <p><b>{{ error.messageKey|trans(error.messageData, 'security') }}</b></p>
+            {% endif %}
+
+            <p class="login-box-msg">{% block title %}{% endblock title %}</p>
+            {% block fos_user_content %}
+
+            {% endblock fos_user_content %}
+        </div>
+    </div>
+{% endblock layout %}

@@ -1,0 +1,866 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://sqldesigner.dev.famoser.ch/ -->
+<sql>
+    <datatypes db="mysql">
+        <group color="rgb(238,238,170)" label="Numeric">
+            <type label="Integer" quote="" sql="INTEGER" length="0"/>
+            <type label="TINYINT" quote="" sql="TINYINT" length="0"/>
+            <type label="SMALLINT" quote="" sql="SMALLINT" length="0"/>
+            <type label="MEDIUMINT" quote="" sql="MEDIUMINT" length="0"/>
+            <type label="INT" quote="" sql="INT" length="0"/>
+            <type label="BIGINT" quote="" sql="BIGINT" length="0"/>
+            <type label="Decimal" quote="" sql="DECIMAL" length="1" re="DEC"/>
+            <type label="Single precision" quote="" sql="FLOAT" length="0"/>
+            <type label="Double precision" quote="" sql="DOUBLE" length="0" re="DOUBLE"/>
+        </group>
+
+        <group color="rgb(255,200,200)" label="Character">
+            <type label="Char" quote="'" sql="CHAR" length="1"/>
+            <type label="Varchar" quote="'" sql="VARCHAR" length="1"/>
+            <type label="Text" quote="'" sql="MEDIUMTEXT" length="0" re="TEXT"/>
+            <type label="Binary" quote="'" sql="BINARY" length="1"/>
+            <type label="Varbinary" quote="'" sql="VARBINARY" length="1"/>
+            <type label="BLOB" quote="'" sql="BLOB" length="0" re="BLOB"/>
+        </group>
+
+        <group color="rgb(200,255,200)" label="Date &amp; Time">
+            <type label="Date" quote="'" sql="DATE" length="0"/>
+            <type label="Time" quote="'" sql="TIME" length="0"/>
+            <type label="Datetime" quote="'" sql="DATETIME" length="0"/>
+            <type label="Year" quote="" sql="YEAR" length="0"/>
+            <type label="Timestamp" quote="'" sql="TIMESTAMP" length="0"/>
+        </group>
+
+        <group color="rgb(200,200,255)" label="Miscellaneous">
+            <type label="ENUM" quote="" sql="ENUM" length="1"/>
+            <type label="SET" quote="" sql="SET" length="1"/>
+            <type label="Bit" quote="" sql="bit" length="0"/>
+        </group>
+    </datatypes>
+    <table x="100" y="300" name="persons">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="address_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="addresses" row="id"/>
+        </row>
+        <row name="user_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="users" row="id"/>
+        </row>
+        <row name="email" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="honorific_prefix" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+            <comment>An honorific prefix preceding a Person's name such as Dr/Mrs/Mr.</comment>
+        </row>
+        <row name="given_name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="family_name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="birth_date" null="1" autoincrement="0">
+            <datatype>DATE</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="telephone" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>a person</comment>
+    </table>
+    <table x="331" y="297" name="addresses">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="street_address" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="postal_code" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="address_locality" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+            <comment>z. B. Basel</comment>
+        </row>
+        <row name="address_country" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+            <comment>https://en.wikipedia.org/wiki/ISO_3166-1 code</comment>
+        </row>
+        <row name="telefone" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="100" y="600" name="orders">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="billing_address_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="addresses" row="id"/>
+        </row>
+        <row name="customer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="order_status_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="order_stati" row="id"/>
+        </row>
+        <row name="part_of_invoice_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="invoices" row="id"/>
+        </row>
+        <row name="order_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="order_number" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="payment_due_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="discount" null="1" autoincrement="0">
+            <datatype>FLOAT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="discount_currency" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="discount_code" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="500" y="600" name="offers">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="offeredBy_id" null="1" autoincrement="0">
+            <datatype>INT</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="product_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="products" row="id"/>
+        </row>
+        <row name="price_specification_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="organization_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="organizations" row="id"/>
+        </row>
+        <row name="valid_from" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="valid_through" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="300" y="600" name="order_offers">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="order_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="orders" row="id"/>
+        </row>
+        <row name="offer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="offers" row="id"/>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="700" y="600" name="products">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="300" y="750" name="invoices">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="customer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="total_payment_due_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="payment_status_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="payment_stati" row="id"/>
+        </row>
+        <row name="payment_due_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="100" y="951" name="order_stati">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>possible types: ordered, payed, completed</comment>
+    </table>
+    <table x="300" y="950" name="payment_stati">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>possible: not paid (open / closed), paid in parts (open / closed), fully paid
+        </comment>
+    </table>
+    <table x="500" y="850" name="price_specifications">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="max_price" null="1" autoincrement="0">
+            <datatype>FLOAT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="min_price" null="1" autoincrement="0">
+            <datatype>FLOAT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="price" null="1" autoincrement="0">
+            <datatype>FLOAT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="price_currency" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+            <comment>ISO 4217 format</comment>
+        </row>
+        <row name="value_added_tax_included" null="0" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>1</default>
+            <comment>if true: tax included, if false: tax not included</comment>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>specifies a price</comment>
+    </table>
+    <table x="700" y="102" name="tasks">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="customer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="leader_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="parent_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="tasks" row="id"/>
+        </row>
+        <row name="offer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="offers" row="id"/>
+        </row>
+        <row name="task_status_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="task_stati" row="id"/>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="estimated_start" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="estimated_end" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="900" y="100" name="task_entries">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="task_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="tasks" row="id"/>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="task_entry_type_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="task_entry_types" row="id"/>
+        </row>
+        <row name="price_specification_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="start" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="end" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="is_billable" null="0" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>1</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="900" y="370" name="task_entry_types">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="701" y="373" name="task_stati">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>pending, in progress, in review, completed</comment>
+    </table>
+    <table x="1850" y="400" name="messages">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="author_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="conversation_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="conversations" row="id"/>
+        </row>
+        <row name="content" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="create_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="910" y="570" name="organizations">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="address_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="addresses" row="id"/>
+        </row>
+        <row name="email" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="telephone" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="legal_name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+        <comment>a organisational unit</comment>
+    </table>
+    <table x="1350" y="600" name="employee_position">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="organization_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="organizations" row="id"/>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="roles" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+            <comment>possible roles: ORGANISATION_MANAGER, EMPLOYEE_MANAGER, OFFER_MANAGER, ORDER_MANAGER,
+                PROJECT_MANAGER
+            </comment>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="100" y="100" name="users">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1600" y="100" name="change_logs">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="changer_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="users" row="id"/>
+        </row>
+        <row name="changed_table" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="changed_entry_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="content" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="change_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1600" y="400" name="conversations">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1100" y="100" name="task_person">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="task_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="tasks" row="id"/>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="roles" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1099" y="601" name="employee_informations">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="organization_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="organizations" row="id"/>
+        </row>
+        <row name="employee_position_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="employee_position" row="id"/>
+        </row>
+        <row name="base_salary_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="hour_salary_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="can_set_salary" null="1" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="roles" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1100" y="230" name="comments">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="task_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="tasks" row="id"/>
+        </row>
+        <row name="author_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="is_public" null="1" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="content" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1600" y="507" name="conversation_participants">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="conversion_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="conversations" row="id"/>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="is_admin" null="1" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="299" y="66" name="notifications">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="receiver_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="link_type" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="link_arguments" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="is_read" null="1" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="notification_date" null="1" autoincrement="0">
+            <datatype>DATE</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="1307" y="280" name="expenses">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="price_specification_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="price_specifications" row="id"/>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="task_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="tasks" row="id"/>
+        </row>
+        <row name="name" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="is_accepted" null="1" autoincrement="0">
+            <datatype>TINYINT</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="is_billable" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="expense_date" null="1" autoincrement="0">
+            <datatype>DATETIME</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+    <table x="875" y="784" name="customers">
+        <row name="id" null="1" autoincrement="1">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="person_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="organization_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="organizations" row="id"/>
+        </row>
+        <row name="primary_consultant_id" null="1" autoincrement="0">
+            <datatype>INTEGER</datatype>
+            <default>NULL</default>
+            <relation table="persons" row="id"/>
+        </row>
+        <row name="customer_since" null="1" autoincrement="0">
+            <datatype>DATE</datatype>
+            <default>NULL</default>
+        </row>
+        <row name="description" null="1" autoincrement="0">
+            <datatype>MEDIUMTEXT</datatype>
+            <default>NULL</default>
+        </row>
+        <key type="PRIMARY" name="">
+            <part>id</part>
+        </key>
+    </table>
+</sql>

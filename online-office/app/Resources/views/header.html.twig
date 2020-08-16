@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{% block title %}Online Office{% endblock %}</title>
+    <meta name="description" content="manage projects, customers and finances with online office">
+    <meta name="author" content="Florian Moser">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{ asset("/dist/css/styles.min.css") }}">
+    {% block inlinestylesheets %}{% endblock %}
+
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body class="{% block bodyclass %}skin-blue{% endblock %}">
+{% block layout %}
+
+{% endblock %}
+<script src="{{ asset("/dist/js/scripts.min.js") }}"></script>
+{% block inlinejavascripts %}{% endblock %}
+</body>
+</html>

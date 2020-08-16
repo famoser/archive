@@ -1,0 +1,288 @@
+{% extends 'header.html.twig' %}
+
+{% block layout %}
+    <!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a
+            href="http://browsehappy.com/">upgrade
+        your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <div class="wrapper">
+        <!-- header -->
+        <header class="main-header">
+            <a href="/" class="logo">
+                <!-- mini logo for sidebar mini 50x50 pixels -->
+                <span class="logo-mini"><b>O</b>O</span>
+                <!-- logo for regular state and mobile devices -->
+                <span class="logo-lg"><b>Online</b>Office</span>
+            </a>
+
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top" role="navigation">
+
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <!-- Navbar Right Menu -->
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">{{ topbar.getNotifications|length }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have {{ topbar.getNotifications|length }} notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        {% for notification in topbar.getNotifications %}
+                                            <li><!-- Task item -->
+                                                <a href="{{ notification.getDescription }}">
+                                                    <h4>
+                                                        {{ notification.getName }}
+                                                        <small>
+                                                            <i class="fa fa-clock-o"></i>{{ notification.getHoursAgo }}
+                                                            hours ago
+                                                        </small>
+                                                    </h4>
+                                                    <p>{{ notification.getDescription }}</p>
+
+                                                    <!--
+                                                    <div class="progress xs">
+                                                        <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                             role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                             aria-valuemax="100">
+                                                            <span class="sr-only">20% Complete</span>
+                                                        </div>
+                                                    </div>-->
+                                                </a>
+                                            </li><!-- end task item -->
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li class="footer"><a data-ajax-request href="{{ path("notifications_clear") }}">clear
+                                        notifications</a></li>
+                            </ul>
+                        </li>
+                        <!-- Tasks: style can be found in dropdown.less -->
+                        <li class="dropdown tasks-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-danger">{{ topbar.getOpenTasks|length }}</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% if topbar.getOpenTasks|length == 0 %}
+                                    <li class="header">You have no open tasks</li>
+                                {% elseif  topbar.getOpenTasks|length == 1 %}
+                                    <li class="header">You have 1 open task</li>
+                                {% else %}
+                                    <li class="header">You have {{ topbar.getOpenTasks|length }} open tasks</li>
+                                {% endif %}
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        {% for task in topbar.getOpenTasks %}
+                                            <li><!-- Task item -->
+                                                <a href="{{ path("tasks_show", { 'id': task.getId }) }}">
+                                                    <h3>
+                                                        {{ task.getName }}
+                                                        <small class="pull-right">{{ task.getDaysLeft }} days left
+                                                        </small>
+                                                    </h3>
+                                                    <!--
+                                                    <div class="progress xs">
+                                                        <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                             role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                             aria-valuemax="100">
+                                                            <span class="sr-only">20% Complete</span>
+                                                        </div>
+                                                    </div>-->
+                                                </a>
+                                            </li><!-- end task item -->
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="{{ path("tasks_index") }}">View all tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs">Florian Moser</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- Menu Body -->
+                                <li>
+                                    <ul class="menu">
+                                        {% if organizationMenuEntries|length > 0 %}
+                                            {% for organizationMenuEntry in organizationMenuEntries %}
+                                                <li><!-- Task item -->
+                                                    <a href="{{ path("organizations_select", { 'id': organizationMenuEntry.getOrganizationId }) }}">
+                                                        <h3>
+                                                            {{ organizationMenuEntry.getOrganizationName }}
+                                                            <small class="pull-right">{{ organizationMenuEntry.getIsActive }}</small>
+                                                        </h3>
+                                                        <!--
+                                                        <div class="progress xs">
+                                                            <div class="progress-bar progress-bar-aqua" style="width: 20%"
+                                                                 role="progressbar" aria-valuenow="20" aria-valuemin="0"
+                                                                 aria-valuemax="100">
+                                                                <span class="sr-only">20% Complete</span>
+                                                            </div>
+                                                        </div>-->
+                                                    </a>
+                                                </li><!-- end task item -->
+                                            {% endfor %}
+                                            <li class="footer"><!-- Task item -->
+                                                <a href="{{ path("organizations_new") }}">
+                                                    create a new organization
+                                                </a>
+                                            </li>
+
+                                        {% else %}
+                                            <li class="footer">You are not part of an organization yet. Request an
+                                                invite from your
+                                                employer, or
+                                                <a href="{{ path("organizations_new") }}">
+                                                    create a new organization
+                                                </a>
+                                            </li>
+                                        {% endif %}
+                                    </ul>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="{{ path("fos_user_security_logout") }}"
+                                           class="btn btn-default btn-flat">Sign out</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- endheader -->
+
+        <!-- sidebar -->
+        <aside class="main-sidebar">
+            <!-- Inner sidebar -->
+            <div class="sidebar">
+                <!-- user panel
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p>User Name</p>
+
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div><!-- /.user-panel -->
+
+                <!-- Search Form
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+                        </span>
+                    </div>
+                </form><!-- /.sidebar-form -->
+
+                <!-- Sidebar Menu -->
+                <ul class="sidebar-menu">
+                    <li class="header">MENU</li>
+                    {% for m in menu %}
+                        {% if (m.getMenuEntries|length > 0 ) %}
+                            <li class="{{ m.getIsActive ? "active ":"" }}treeview">
+                                <a href="{{ path(m.getPath) }}">
+                                    <i class="fa fa-{{ m.getIcon }}"></i>
+                                    <span>{{ m.getTitle|trans }}</span>
+                                    <i class="fa fa-angle-left pull-right"></i></a>
+                                <ul class="treeview-menu">
+                                    {% for m2 in m.getMenuEntries %}
+                                        <li{{ m2.getIsActive ? ' class="active"' : "" }}>
+                                            <a href="{{ path(m2.getPath) }}">{{ m2.getTitle|trans }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li{{ m.getIsActive ? ' class="active"' : "" }}>
+                                <a href="{{ path(m.getPath) }}">
+                                    <i class="fa fa-{{ m.getIcon }}"></i>
+                                    <span>{{ m.getTitle|trans }}</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul><!-- /.sidebar-menu -->
+
+            </div><!-- /.sidebar -->
+        </aside><!-- /.main-sidebar -->
+        <!-- endsideheader -->
+
+        <!-- content -->
+        <div class="content-wrapper">
+
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <h1>
+                    {% block title %}Online Office{% endblock title %}
+                    <small>{% block subTitle %}{% endblock subTitle %}</small>
+                </h1>
+                <ol class="breadcrumb">
+                    {% for breadcrumb in breadcrumbs %}
+                        <li>
+                            <a href="{{ path(breadcrumb.getRouteName, breadcrumb.getRouteArguments) }}">
+                                <i class="fa fa-{{ breadcrumb.getIcon }}"></i>
+                                {{ breadcrumb.getTitle }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ol>
+            </div>
+
+            <!-- Main content -->
+            <div class="content body">
+                {% block body %}
+
+                {% endblock body %}
+            </div>
+        </div>
+
+        <!-- endcontent -->
+
+        <!-- The Right Sidebar -->
+        <aside class="control-sidebar control-sidebar-light">
+            <!-- Content of the sidebar goes here -->
+        </aside>
+        <!-- The sidebar's background -->
+        <!-- This div must placed right after the sidebar for it to work-->
+        <div class="control-sidebar-bg"></div>
+
+        <!-- footer -->
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 1.0
+            </div>
+            <strong>Copyright © 2014-2016 <a href="https://famoser.ch">famoser.ch</a>.</strong> All rights reserved.
+        </footer>
+        <!-- end footer -->
+
+    </div>
+
+{% endblock layout %}

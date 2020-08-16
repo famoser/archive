@@ -1,0 +1,41 @@
+{% extends "full_layout.html.twig" %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-primary">
+                <div class="box-header">
+                    <i class="fa fa-{{ entityIcon }}"></i>
+                    <h3 class="box-title">{{ entityNamePlural }}</h3>
+
+                    <div class="box-tools">
+                        <div class="input-group input-group-sm" style="width: 150px;">
+                            <input type="text" name="table_search" data-target="search" data-search-field
+                                   class="form-control pull-right" placeholder="search">
+                            <div class="input-group-btn">
+
+                                <a class="btn btn-primary" href="{{ path( entityNamePlural  ~ "_new") }}"><i
+                                            class="fa fa-plus"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-hover" id="search">
+                        <thead>
+                        <tr>
+                            {% block tableHead %}
+                            {% endblock tableHead %}
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% block tableBody %}
+                        {% endblock tableBody %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

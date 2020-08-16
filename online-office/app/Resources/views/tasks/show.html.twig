@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Tasks</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ task.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ task.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ task.description }}</td>
+            </tr>
+            <tr>
+                <th>Estimatedstart</th>
+                <td>{% if task.estimatedStart %}{{ task.estimatedStart|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Estimatedend</th>
+                <td>{% if task.estimatedEnd %}{{ task.estimatedEnd|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('tasks_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('tasks_edit', { 'id': task.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

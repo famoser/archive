@@ -1,0 +1,15 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}{{ 'login.register'|trans({}, "public") }}{% endblock title %}
+
+{% block fos_user_content %}
+
+    {% include "FOSUserBundle:Registration:register_content.html.twig" %}
+
+    <a href="{{ path('fos_user_security_login') }}"
+       class="text-center">{{ 'login.sign_in'|trans({}, "public") }}</a>
+
+
+{% endblock fos_user_content %}
