@@ -1,0 +1,35 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <header>
+        <h1>Telemetry for my Applications</h1>
+        <p><a href="{{ path_for('create') }}">create</a></p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th width="90px"></th>
+                <th>url</th>
+                <th>target</th>
+                <th>name</th>
+                <th>count</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for relink in relinks %}
+                <tr>
+                    <td>
+                        <button class="btn fa fa-copy" data-clipboard-text="http://link.famoser.ch/{{ relink.getUrl() }}"></button>
+                    </td>
+
+                    <td><a href="{{ path_for('edit', {'id': relink.getId}) }}">{{ relink.getUrl() }}</a></td>
+                    <td>{{ relink.getTarget() }}</td>
+                    <td>{{ relink.getName() }}</td>
+                    <td>{{ relink.getHitCount() }}</td>
+                </tr>
+            {% else %}
+                No links have been found.
+            {% endfor %}
+            </tbody>
+        </table>
+    </header>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <header>
+        <p><a href="{{ path_for('view') }}">back</a></p>
+        <h1>Edit {{ relink.getName }} ({{ relink.getHitCount }} hits)</h1>
+
+        <form action="{{ path_for('editPost', {'id': relink.getId}) }}" method="post">
+            <p>
+                <label for="target">target</label>
+                <input id="target" name="target" value="{{ relink.getTarget }}"/>
+            </p>
+            <p>
+                <label for="name">name</label>
+                <input id="name" name="name" value="{{ relink.getName }}"/>
+            </p>
+            <p>
+                <label for="description">description</label>
+                <input id="description" name="description" value="{{ relink.getDescription }}"/>
+            </p>
+            <p>
+                <button type="submit">submit</button>
+            </p>
+        </form>
+    </header>
+{% endblock %}

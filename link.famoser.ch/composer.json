@@ -1,0 +1,26 @@
+{
+  "name": "famoser/link",
+  "type": "application",
+  "license": "MIT",
+  "description": "a small relink application",
+  "keywords": [
+    "link"
+  ],
+  "authors": [
+    {
+      "name": "Florian Moser",
+      "email": "git@famoser.ch",
+      "homepage": "http://famoser.ch",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "slim/slim": "^3.0",
+    "slim/twig-view": "^2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "Famoser\\Link\\": "src/"
+    }
+  }
+}

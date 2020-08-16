@@ -1,0 +1,40 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.table {
+    width: 100%;
+}
+
+.table th,
+.table td,
+.small {
+    text-align: left;
+    text-transform: none;
+    font-family: calibri, Sans-Serif;
+    letter-spacing: normal;
+}
+
+.small {
+    text-align: center;
+    font-size: 12px;
+}
+
+input, select, textarea, p, td, th {
+    color: #414f57;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 12pt;
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-transform: none;
+}
+
+th{
+    font-weight: bold;
+}
+
+input, select, textarea {
+    width: 100%;
+}
