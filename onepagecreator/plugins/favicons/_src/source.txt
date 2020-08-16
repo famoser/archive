@@ -1,0 +1,4 @@
+generate icons on
+http://www.favicon-generator.org/
+
+include all files in to the images/favicons/ directory from your project

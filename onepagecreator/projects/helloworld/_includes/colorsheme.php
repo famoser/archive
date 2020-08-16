@@ -1,0 +1,20 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: Florian Moser
+ * Date: 22.12.2015
+ * Time: 20:54
+ */
+
+//http://paletton.com/
+define("COLOR_PRIMARY_FOREGROUND", "FFFFFF");
+
+define("COLOR_PRIMARY_BACKGROUND_LIGHT", "7788AA");
+define("COLOR_PRIMARY_BACKGROUND", "2E4372");
+define("COLOR_PRIMARY_BACKGROUND_DARK", "061639");
+
+define("COLOR_SECONDARY_FOREGROUND", "FFFFFF");
+
+define("COLOR_SECONDARY_BACKGROUND_LIGHT", "75B095");
+define("COLOR_SECONDARY_BACKGROUND", "277552");
+define("COLOR_SECONDARY_BACKGROUND_DARK", "003B20");
