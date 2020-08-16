@@ -1,0 +1,69 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CoverExplorer" GeneratedClassName="Websites">
+  <Profiles />
+  <Settings>
+    <Setting Name="website1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.seekacover.com/</Value>
+    </Setting>
+    <Setting Name="webseite1stelle1teil1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;li&gt;&lt;img src="</Value>
+    </Setting>
+    <Setting Name="webseite1stelle1teil2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="webseite1stelle2teil1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">" title="</Value>
+    </Setting>
+    <Setting Name="webseite1stelle2teil2" Type="System.String" Scope="User">
+      <Value Profile="(Default)"> CD Covers"&gt;&lt;/li&gt;</Value>
+    </Setting>
+    <Setting Name="website1search" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.seekacover.com/cd/</Value>
+    </Setting>
+    <Setting Name="website1stelle1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website1stelle2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="schlagworte" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website1adresse" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website2search" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.amazon.com/s/keywords=</Value>
+    </Setting>
+    <Setting Name="website2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.amazon.com/</Value>
+    </Setting>
+    <Setting Name="website2stelle1teil1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">&lt;div id="atfResults" class="list results apsList"&gt;</Value>
+    </Setting>
+    <Setting Name="website2stelle1teil2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website2stelle2teil1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">" class="productImage" alt="Product Details"/&gt;&lt;/a&gt;&lt;/div&gt;</Value>
+    </Setting>
+    <Setting Name="website2stelle2teil2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website2stelle1" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website2stelle2" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website2adresse" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="website3" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.google.com/</Value>
+    </Setting>
+    <Setting Name="website3search" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.google.com/search?site=imghp&amp;tbm=isch&amp;source=hp&amp;biw=1366&amp;bih=667&amp;q=</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
